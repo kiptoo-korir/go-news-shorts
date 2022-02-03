@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main.css">
+    <title>{{ .Title }}</title>
+</head>
+
+<body>
+    <div class="h-100">
+        <div class="container mx-auto">
+            {{ range $key, $article := .Articles }}
+            <div class="card mx-auto flex-row">
+                <div class="image-section">
+                    <img src="{{ $article.ImageUrl }}" class="article-image" alt="article-photo">
+                </div>
+                <div class="article-section">
+                    <h5 class="article-title">{{ $article.Title }}</h5>
+                    <p class="article-author">By {{ $article.Author }}</p>
+                    <p class="article-time">{{ $article.Time }}, {{ $article.Date}}</p>
+                    <p class="article-content">{{ $article.Content }}</p>
+                </div>
+            </div>
+            {{ end }}
+            <br>
+            <br>
+        </div>
+    </div>
+</body>
+
+</html>
